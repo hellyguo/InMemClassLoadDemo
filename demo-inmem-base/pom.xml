@@ -2,19 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>load-demo</artifactId>
-        <groupId>demo.inmem.classload</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>demo.inmem.classload</groupId>
     <artifactId>demo-inmem-base</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
@@ -42,11 +38,13 @@
         <dependency>
             <groupId>com.lmax</groupId>
             <artifactId>disruptor</artifactId>
+                <version>3.3.6</version>
         </dependency>
         <!-- logging -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
+                <version>2.11.2</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.apache.logging.log4j</groupId>
@@ -57,10 +55,12 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
+                <version>2.11.2</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
+                <version>2.11.2</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -79,6 +79,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
+                <version>1.7.30</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -89,6 +90,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>log4j-over-slf4j</artifactId>
+                <version>1.7.30</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -99,22 +101,27 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
+                <version>1.7.30</version>
         </dependency>
         <!-- junit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+                <version>4.13</version>
             <scope>test</scope>
         </dependency>
         <!-- mockito -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
+                <version>3.3.3</version>
+            <scope>test</scope>
         </dependency>
         <!-- powermock -->
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-core</artifactId>
+                <version>2.0.4</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -130,11 +137,13 @@
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-api-support</artifactId>
+                <version>2.0.4</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-module-junit4</artifactId>
+                <version>2.0.4</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -146,6 +155,7 @@
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-module-junit4-common</artifactId>
+                <version>2.0.4</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -157,6 +167,7 @@
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-api-mockito2</artifactId>
+                <version>2.0.4</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -169,12 +180,14 @@
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-core</artifactId>
-            <scope>provided</scope>
+                <version>1.19</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-generator-annprocess</artifactId>
-            <scope>provided</scope>
+                <version>1.19</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

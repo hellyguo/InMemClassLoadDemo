@@ -12,6 +12,7 @@ function dump_bytes() {
     sed "s/ \{2,\}//g"      | \
     sed "s/ /,0x/g"         | \
     sed "s/^/0x/g"          | \
+    sed "s/0x/(byte)0x/g"   | \
     sed "s/,/, /g"          | \
     sed "s/$/,/g"           | \
     sed "s/^/        /g"
@@ -26,11 +27,20 @@ rm -rf $TARGET_FILE
     echo "";
     echo "// SimTargetBytes.java, generated from $CLASS_FILE";
     echo "package demo.base;";
-    echo "public class SimTargetBytes {";
+    echo "";
+    echo "public final class SimTargetBytes {";
+    echo "";
     echo "    public static final byte[] SIM_TARGET_BYTES = {";
     dump_bytes;
     echo "    };";
+    echo "";
+    echo "    private SimTargetBytes(){";
+    echo "    }";
+    echo "";
     echo "}";
 } > $TARGET_FILE
 
-cp $TARGET_FILE demo-inmem-base/src/main/java/demo/base/SimTargetBytes.java
+cp $TARGET_FILE demo-inmem-jdk8/src/main/java/demo/base/SimTargetBytes.java
+cp $TARGET_FILE demo-inmem-jdk11/src/main/java/demo/base/SimTargetBytes.java
+cp $TARGET_FILE demo-inmem-jdk17/src/main/java/demo/base/SimTargetBytes.java
+
