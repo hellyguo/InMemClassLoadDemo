@@ -49,6 +49,8 @@ same as `jdk8`
 
 ### use `MethodLookup#defineHiddenClass`
 
+> need to let the hidden class and the holder class in the same package!
+
 ```java
     public static Class<?> loadClass(String className, byte[] classBytes) {
         if (!className.startsWith(PACKAGE_NAME)) {

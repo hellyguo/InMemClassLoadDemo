@@ -49,6 +49,8 @@
 
 ### 使用 `MethodLookup#defineHiddenClass`
 
+> 需要让被隐藏的类和持有类在同一个 `package`!
+
 ```java
     public static Class<?> loadClass(String className, byte[] classBytes) {
         if (!className.startsWith(PACKAGE_NAME)) {
