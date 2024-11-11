@@ -65,3 +65,17 @@ same as `jdk8`
         }
     }
 ```
+
+## HowTo
+
+1. cd `demo-inmem-base`
+2. compile
+    
+    ```shell
+    mvn package -Dmaven.test.skip=true
+    # or
+    mvnd package -Dmaven.test.skip=true
+    ```
+    
+3. call `class2bytes.sh`, generate the Java file, which is hold bytes.
+4. test in `demo-inmem-jdk8`/`demo-inmem-jdk11`/`demo-inmem-jdk17`

@@ -65,3 +65,17 @@
         }
     }
 ```
+
+## 使用方法
+
+1. 切换到 `demo-inmem-base`
+2. 编译
+
+    ```shell
+    mvn package -Dmaven.test.skip=true
+    # or
+    mvnd package -Dmaven.test.skip=true
+    ```
+
+3. 执行 `class2bytes.sh`, 生成持有 `class bytes` 的 Java 文件.
+4. 在 `demo-inmem-jdk8`/`demo-inmem-jdk11`/`demo-inmem-jdk17` 中测试
