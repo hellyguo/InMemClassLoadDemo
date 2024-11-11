@@ -28,6 +28,9 @@
                     <proc>none</proc>
                     <fork>true</fork>
                     <useIncrementalCompilation>true</useIncrementalCompilation>
+                    <compilerArgs>
+                        <arg>--add-exports=java.base/jdk.internal.misc=demo.inmem.jdk11ver</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
         </plugins>

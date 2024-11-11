@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 设置log4j2的自身log级别为warn -->
+
+<!-- OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL -->
+
+<configuration status="INFO" monitorInterval="30">
+    <properties>
+        <property name="appName">inmem-load-jdk8</property>
+        <property name="logPath">/tmp</property>
+        <property name="date-pattern">-%d{yyyy-MM-dd}-%i</property>
+        <property name="logFileSize">${sys:logFileSize:-50 MB}</property>
+        <!--日志输出格式-->
+        <!--[日志生成时间][日志生成时间纳秒值][日志级别][线程名][#线程号][日志器名称]日志-->
+        <property name="pattern">[%d{HH:mm:ss:SSS}][%N][%p{length=1}][%t][#%tid][%c{1.}]%m%n</property>
+    </properties>
+    <appenders>
+        <console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${pattern}"/>
+            <Filters>
+                <ThresholdFilter level="DEBUG"/>
+            </Filters>
+        </console>
+        <RollingRandomAccessFile name="RollingFileInfo" fileName="${logPath}/${appName}.log"
+                                 filePattern="${logPath}/${appName}-${date-pattern}.log.gz">
+            <Filters>
+                <ThresholdFilter level="DEBUG"/>
+                <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
+                <!--<ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>-->
+            </Filters>
+            <PatternLayout pattern="${pattern}"/>
+            <Policies>
+                <OnStartupTriggeringPolicy/>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="${logFileSize}"/>
+            </Policies>
+        </RollingRandomAccessFile>
+    </appenders>
+
+    <Loggers>
+        <root level="trace">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFileInfo"/>
+        </root>
+    </Loggers>
+</configuration>
