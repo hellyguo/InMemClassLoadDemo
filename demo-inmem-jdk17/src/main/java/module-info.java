@@ -5,5 +5,6 @@
  */
 module demo.inmem.jdk17ver {
     requires org.slf4j;
+    exports demo.base;
     exports demo.base.inf;
 }
