@@ -2,6 +2,8 @@ package demo.base.impl;
 
 import demo.base.inf.SimTarget;
 
+import java.util.Arrays;
+
 /**
  * @author Helly Guo
  * <p>
@@ -11,7 +13,9 @@ public class SimTargetImpl implements SimTarget {
 
     @Override
     public void outputData(String data) {
-        System.out.println(data);
+        int[] array = new int[256];
+        Arrays.fill(array, 11);
+        array[0] = Arrays.stream(array).sum();
     }
 
 }
