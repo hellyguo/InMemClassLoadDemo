@@ -42,8 +42,9 @@ public class InMemClassLoaderJdk11CallBenchmark {
     static {
         try {
             Class<? extends SimTarget> targetClass1 =
-                    (Class<? extends SimTarget>) new InMemClassLoaderImpl().loadClass("demo.base.impl.SimTargetImpl",
-                                                                                      SimTargetBytes.SIM_TARGET_BYTES);
+                    (Class<? extends SimTarget>) new InMemClassLoaderImpl().loadClass(
+                            "demo.base.impl.SimTargetImpl",
+                            SimTargetBytes.SIM_TARGET_BYTES);
             Class<? extends SimTarget> targetClass2 =
                     (Class<? extends SimTarget>) new InMemClassLoaderAnonImpl().loadClass(
                             "demo.base.impl.SimTargetImpl",
