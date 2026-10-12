@@ -2,6 +2,8 @@
 
 [中文版](README_cn.md)
 
+see also [light-class-loader-4-groovy](https://github.com/itcraft-cn/light-class-loader-4-groovy/)
+
 ## jdk8
 
 ### use `ClassLoader#defineClass`
